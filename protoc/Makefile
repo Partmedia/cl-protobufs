@@ -22,7 +22,7 @@ PROTOC      ?= $(PROTOC_ROOT)/bin/protoc
 OFILES = enum.o field.o file.o generator.o literals.o message.o \
 	names.o service.o proto2-descriptor-extensions.o main.o
 
-CXXFLAGS = -std=c++17 -I$(PROTOC_ROOT)/include -I.
+CXXFLAGS = -std=c++17 -I$(PROTOC_ROOT)/include -I. -fclang-abi-compat=17
 LIBS = -Wl,-L$(PROTOC_ROOT)/lib -Wl,-rpath -Wl,$(PROTOC_ROOT)/lib -lprotoc `pkg-config --libs protobuf`
 
 protoc-gen-cl-pb: $(OFILES) Makefile
